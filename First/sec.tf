@@ -1,7 +1,7 @@
 # Step 7: Security Group
 resource "aws_security_group" "wb_sg2" {
   name        = "allow_http_ssh2"
-  description = "Allow HTTPS,HTTP and SSH inbound traffic"
+  description = "Allow HTTP and SSH inbound traffic"
   vpc_id      = aws_vpc.VPC_nonprod.id
 
   ingress {
