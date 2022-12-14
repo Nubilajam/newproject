@@ -62,13 +62,8 @@ resource "aws_security_group" "web_sg1" {
   description = "Allow HTTPS,HTTP and SSH inbound traffic"
   vpc_id      = aws_vpc.VPC_nonprod.id
 
-  ingress {
-    description = "HTTPS from everywhere"
-    from_port   = 80
-    to_port     = 80
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
+ 
+  
   ingress {
     description = "HTTP from everywhere"
     from_port   = 430

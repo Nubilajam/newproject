@@ -30,7 +30,7 @@ user_data = <<EOF
               systemctl enable httpd
               yum install -y httpd
                systemctl start httpd
-               echo "<h1>Nubila Mbetigi James new project. Thanks </h1>" > /var/www/html/index.html
+               echo "<h1>Nubila Mbetigi James new project. Welcome my website </h1>" > /var/www/html/index.html
               EOF
 
   lifecycle {
