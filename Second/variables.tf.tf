@@ -13,11 +13,6 @@ variable "public_cidrs" {
 
 variable "instance_type" {
   type        = string
-  description = "Web instance"
+  description = "Web instance size"
   default     = "t2.micro"
 }
-
-# Data source for availability zones in us-east-1
-#data "aws_availability_zones" "available" {
- # state = "available"
-#}

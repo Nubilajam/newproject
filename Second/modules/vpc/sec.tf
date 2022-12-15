@@ -42,7 +42,6 @@ resource "aws_security_group" "wb_sg2" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
-
   ingress {
     description      = "SSH from everywhere"
     from_port        = 22

@@ -42,6 +42,11 @@ resource "aws_instance" "james_web" {
 
 
 
+output "webip" {
+  value = aws_instance.james_web.public_ip
+}
+
+
 
 
 
