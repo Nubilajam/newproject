@@ -13,6 +13,6 @@ variable "public_cidrs" {
 
 variable "instance_type" {
   type        = string
-  description = "Web instance size"
+  description = "Web instance"
   default     = "t2.micro"
 }

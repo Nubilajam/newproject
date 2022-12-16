@@ -18,11 +18,13 @@ resource "aws_subnet" "public_sn2" {
   cidr_block        = var.public_cidrs[1]
   availability_zone = var.availability_zone[1]
 }
-#Step 4- Creating Internet Gateway
+
+#Step 4: Creating Internet Gateway
 resource "aws_internet_gateway" "igw" {
   vpc_id = aws_vpc.VPC_nonprod.id
 }
-#Step 5- Routine Table to igw
+
+#Step 5: Routine Table to igw
 
 resource "aws_route_table" "public_route_table" {
   vpc_id = aws_vpc.VPC_nonprod.id
@@ -32,7 +34,7 @@ resource "aws_route_table" "public_route_table" {
   }
 }
 
-#Step 6- Associating Routine table with subnet
+#Step 6: Associating Routine table with subnet
 #For subnet 1
 resource "aws_route_table_association" "link1" {
   route_table_id = aws_route_table.public_route_table.id
@@ -44,7 +46,18 @@ resource "aws_route_table_association" "link2" {
   subnet_id      = aws_subnet.public_sn2.id
 }
 
+# Output
 
+output "public_subnet_1" {
+  value = aws_subnet.public_sn1.id
+}
 
+output "public_subnet_2" {
+  value = aws_subnet.public_sn2.id
+}
+
+output "web_sg2" {
+  value = aws_security_group.wb_sg2.id
+}
 
               

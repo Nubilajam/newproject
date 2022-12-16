@@ -1,5 +1,4 @@
 
-
 # Data source for AMI id
 data "aws_ami" "latest_amazon_linux" {
   owners      = ["amazon"]
@@ -10,6 +9,18 @@ data "aws_ami" "latest_amazon_linux" {
   }
 }
 
+variable "instance_type" {
+  type = string
+}
+variable "subnet_id" {
+  type = string
+}
+variable "security_group" {
+  type = list(string)
+}
+variable "key_name" {
+  type = string
+}
 
 resource "aws_instance" "james_web" {
   ami                         = data.aws_ami.latest_amazon_linux.id
@@ -40,7 +51,7 @@ resource "aws_instance" "james_web" {
 }
 
 
-
+# Output
 
 output "webip" {
   value = aws_instance.james_web.public_ip

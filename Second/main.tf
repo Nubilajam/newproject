@@ -1,4 +1,4 @@
-
+# Step 1 - Define the provider
 provider "aws" {
   region  = "us-east-1"
 }
@@ -11,6 +11,18 @@ terraform {
     region = "us-east-1"
   }
 }
+
+# Data source for availability zones in us-east-1
+data "aws_availability_zones" "available" {
+  state = "available"
+}
+
+# Adding SSH key to Amazon EC2
+resource "aws_key_pair" "new_project" {
+  key_name   = "project.pub"
+  public_key = file("~/.ssh/project.pub")
+}
+
 
 module "vpc" {
 
@@ -31,18 +43,7 @@ module "web" {
 }
 
 
-# Data source for availability zones in us-east-1
-data "aws_availability_zones" "available" {
-  state = "available"
-}
-
-# Adding SSH key to Amazon EC2
-resource "aws_key_pair" "new_project" {
-  key_name   = "project.pub"
-  public_key = file("~/.ssh/project.pub")
-}
-
-
+# Output
 output "web_ip" {
   value = module.web.webip
 }

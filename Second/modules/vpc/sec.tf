@@ -1,4 +1,4 @@
-
+# Step 7: Security Group
 
 # Step 7: Security Group
 resource "aws_security_group" "web_sg1" {
@@ -13,7 +13,6 @@ resource "aws_security_group" "web_sg1" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
-
   ingress {
     description      = "SSH from everywhere"
     from_port        = 22
